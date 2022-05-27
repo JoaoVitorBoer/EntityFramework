@@ -7,5 +7,6 @@ public class Pedido
     public int ClienteId {get;set;}
     public Cliente Cliente {get;set;} = null!;
     //relacionamento 1:N com Pedido
-    
+    public List<Item> Itens {get;set;} = null!;
+
 }

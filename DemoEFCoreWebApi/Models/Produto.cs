@@ -6,5 +6,6 @@ public class Produto
     public string Nome {get;set;} = null!;
     public string? Descricao {get;set;}
     public int PrecoUnitario {get;set;}
+    public List<Item> Itens {get;set;} = null!;
 
 }
