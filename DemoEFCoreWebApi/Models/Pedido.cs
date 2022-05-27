@@ -8,5 +8,5 @@ public class Pedido
     public Cliente Cliente {get;set;} = null!;
     //relacionamento 1:N com Pedido
     public List<Item> Itens {get;set;} = null!;
-
+    public ICollection<Produto> Produtos {get;set;} = null!;
 }

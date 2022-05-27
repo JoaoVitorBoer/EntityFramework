@@ -7,5 +7,6 @@ public class Produto
     public string? Descricao {get;set;}
     public int PrecoUnitario {get;set;}
     public List<Item> Itens {get;set;} = null!;
+    public ICollection<Pedido> Pedidos {get;set;} = null!;
 
 }

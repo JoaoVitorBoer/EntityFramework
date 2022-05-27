@@ -27,6 +27,10 @@ public class LojinhaContext : DbContext
             entityBuilder.Property(e => e.Email)
                 .HasMaxLength(50);    
         });
+        modelBuilder.Entity<Pedido>()
+            .HasMany(e => e.Produtos)
+            .WithMany(e => e.Pedidos)
+            .UsingEntity<Item>();
     }
 
 }
