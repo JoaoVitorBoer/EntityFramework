@@ -12,7 +12,7 @@ public PedidoRepositorioEF(LojinhaContext contexto)
     public async Task<Pedido> AdicionarAsync(Pedido pedido)
     {
         await _contexto.Pedidos.AddAsync(pedido);
-        await _contexto.SaveChangesAsync(pedido);
+        await _contexto.SaveChangesAsync();
         return pedido;
     }
 }
