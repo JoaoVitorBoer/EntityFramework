@@ -8,8 +8,6 @@ namespace DemoEFCoreWebApi.Controllers;
 [Route("[controller]")]
 public class CatalogoController : ControllerBase
 {
-
-
     private readonly ILogger<CatalogoController> _logger;
     private readonly IProdutoRepositorio _produtosRepositorio;
 
@@ -18,22 +16,24 @@ public class CatalogoController : ControllerBase
         _logger = logger;
         _produtosRepositorio = produtosRepositorio;
     }
+
     //GET .../catalogo
     [HttpGet]
-    public  Task<IEnumerable<Produto>> GetTodos()
+    public Task<IEnumerable<Produto>> GetTodos()
     {
         return _produtosRepositorio.ConsultarTodosAsync();
     }
 
-//GET .../catalogo//{id}
+    //GET .../catalogo/{id}
     [HttpGet("{id}")]
     public async Task<ActionResult<Produto>> GetPorId(int id)
     {
-        try{
+        try
+        {
             var produto = await _produtosRepositorio.ConsultarAsync(id);
             return produto;
         }
-        catch(ProdutoNaoEncotradoException)
+        catch (ProdutoNaoEncontradoException)
         {
             return NotFound();
         }

@@ -1,8 +1,9 @@
 namespace DemoEFCoreWebApi.Services;
 
-public class ProdutoNaoEncotradoException : Exception
+public class ProdutoNaoEncontradoException: Exception
 {
-    public ProdutoNaoEncotradoException(int id) : base ( $"Produto id={id} não encontrado")
-    {
+    public ProdutoNaoEncontradoException(int id)
+    : base ($"Produto id={id} não encontrado")
+    {        
     }
-} 
+}
