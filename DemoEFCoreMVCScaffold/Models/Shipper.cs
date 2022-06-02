@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoEFCoreMVCScaffold.Models
 {
@@ -11,6 +13,8 @@ namespace DemoEFCoreMVCScaffold.Models
         }
 
         public int ShipperId { get; set; }
+        [Display(Name="Company Name")]
+        [StringLength(40)]
         public string CompanyName { get; set; } = null!;
         public string? Phone { get; set; }
 
