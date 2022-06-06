@@ -21,6 +21,17 @@ public class PedidosController : ControllerBase
         _pedidosRepositorio = pedidosRepositorio;   
         _clientesRepositorio = clientesRepositorio;
     }
+    //GET.../pedidos/{id}
+    [HttpGet("{id}")]
+    public async Task<ActionResult<PedidoDTO>> GetPedido(int id)
+    {
+        var pedido = await _pedidosRepositorio.ConsultarAsync(id);
+        if (pedido is null)
+        {
+            return NotFound();
+        }
+        return PedidoDTO.FromPedido(pedido);
+    }
 
     //POST .../pedidos
     [HttpPost]
